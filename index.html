@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank Soalan UPKK · Akidah & Adab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --emerald:#0d4a38; --emerald-2:#0a3a2c; --deep:#06261d; --gold:#c9a227; --gold-2:#e6c766;
+  --ivory:#faf6ec; --paper:#fffdf7; --ink:#1b2a23; --muted:#5e6d64; --line:#e6dcc4;
+  --ok:#1f8a5b; --ok-bg:#e5f4ec; --bad:#b23a3a; --bad-bg:#f8e6e3; --warn:#b9821a;
+  --lvM:#2e7d5b; --lvS:#b9821a; --lvK:#9b2c3a;
+  --shadow:0 10px 30px -12px rgba(6,38,29,.25);
+  --jawi:'Scheherazade New','Amiri','Noto Naskh Arabic','Traditional Arabic',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:var(--ivory);line-height:1.55;min-height:100vh}
+button{font-family:inherit;cursor:pointer}
+input,select{font-family:inherit}
+.jawi{font-family:var(--jawi);direction:rtl;text-align:right;unicode-bidi:isolate}
+.arab{font-family:'Amiri',var(--jawi);direction:rtl}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== HEADER ===== */
+.zellige{background-color:var(--emerald);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%23c9a227' stroke-opacity='.28' stroke-width='1'%3E%3Crect x='21' y='21' width='42' height='42'/%3E%3Crect x='21' y='21' width='42' height='42' transform='rotate(45 42 42)'/%3E%3Ccircle cx='42' cy='42' r='9'/%3E%3Cpath d='M0 0L21 21M84 0L63 21M0 84L21 63M84 84L63 63M42 0V12M42 84V72M0 42H12M84 42H72'/%3E%3C/g%3E%3C/svg%3E")}
+header.top{position:sticky;top:0;z-index:50;box-shadow:0 2px 0 var(--gold)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;cursor:pointer}
+.seal{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;background:var(--deep);flex-shrink:0}
+.seal svg{width:30px;height:30px}
+.brand-t{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;letter-spacing:.3px;line-height:1.1}
+.brand-s{font-size:.72rem;color:var(--gold-2);letter-spacing:1.6px;text-transform:uppercase}
+nav.menu{display:flex;gap:6px;flex-wrap:wrap}
+nav.menu button{background:transparent;border:1px solid rgba(230,199,102,.35);color:#f3ead0;padding:8px 14px;border-radius:999px;font-size:.85rem;font-weight:600;transition:.2s}
+nav.menu button:hover,nav.menu button.on{background:var(--gold);color:var(--deep);border-color:var(--gold)}
+
+/* ===== HERO ===== */
+.hero{color:#fff;padding:46px 0 70px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:40px;background:var(--ivory);clip-path:polygon(0 100%,0 40%,8% 70%,16% 40%,24% 70%,32% 40%,40% 70%,48% 40%,56% 70%,64% 40%,72% 70%,80% 40%,88% 70%,96% 40%,100% 60%,100% 100%)}
+.bismillah{font-family:'Amiri',serif;font-size:1.9rem;color:var(--gold-2);text-align:center;margin-bottom:10px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.3rem);text-align:center;line-height:1.1}
+.hero .jawi-title{font-family:var(--jawi);font-size:clamp(1.5rem,3.5vw,2.1rem);text-align:center;color:var(--gold-2);margin-top:6px;direction:rtl}
+.hero p.lead{max-width:680px;margin:14px auto 0;text-align:center;color:#d9e7df;font-size:.98rem}
+.hero .cta{display:flex;gap:12px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.btn{border:none;border-radius:12px;padding:12px 22px;font-weight:700;font-size:.95rem;transition:.2s;display:inline-flex;align-items:center;gap:8px}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--deep);box-shadow:0 6px 18px -6px rgba(201,162,39,.7)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-em{background:var(--emerald);color:#fff}
+.btn-em:hover{background:var(--emerald-2)}
+.btn-line{background:#fff;color:var(--emerald);border:1.5px solid var(--emerald)}
+.btn-line:hover{background:var(--ok-bg)}
+.btn-red{background:var(--bad);color:#fff}
+.btn-sm{padding:7px 12px;font-size:.8rem;border-radius:9px}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ===== SECTIONS / CARDS ===== */
+main{padding:10px 0 60px}
+.view{display:none;animation:fade .35s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sec-h{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:34px 0 14px;flex-wrap:wrap}
+.sec-h h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--emerald)}
+.sec-h .jawi{font-size:1.3rem;color:var(--gold)}
+.orn{height:14px;margin:4px 0 0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='14'%3E%3Cpath d='M0 7h9l5-5 5 5h9M14 2v10' stroke='%23c9a227' fill='none'/%3E%3C/svg%3E") repeat-x;opacity:.8}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:22px}
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:640px){.g2{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}nav.menu button{padding:7px 10px;font-size:.78rem}.brand-s{display:none}}
+.stat{position:relative;overflow:hidden}
+.stat .k{font-size:.75rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-weight:700}
+.stat .v{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--emerald);line-height:1.1;margin-top:4px}
+.stat .s{font-size:.8rem;color:var(--muted)}
+.stat:after{content:"";position:absolute;right:-18px;top:-18px;width:70px;height:70px;border:2px solid var(--gold);opacity:.25;transform:rotate(45deg)}
+.bar{height:12px;background:#efe7d3;border-radius:999px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--emerald),#2a8a68);transition:width .8s ease}
+.bar.gold>i{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+.brow{display:grid;grid-template-columns:120px 1fr 52px;gap:10px;align-items:center;margin:10px 0;font-size:.88rem}
+.brow b{text-align:right;color:var(--emerald)}
+table{width:100%;border-collapse:collapse;font-size:.87rem}
+th{background:var(--emerald);color:#fff;text-align:left;padding:10px;font-weight:600;font-size:.8rem;letter-spacing:.4px}
+th:first-child{border-radius:10px 0 0 0}th:last-child{border-radius:0 10px 0 0}
+td{padding:10px;border-bottom:1px solid var(--line)}
+tr:hover td{background:#fbf7ea}
+.tbl-wrap{overflow-x:auto}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700}
+.g-A{background:#dff3e8;color:#145c3d}.g-B{background:#e8f0d9;color:#4b6417}.g-C{background:#fbf0d4;color:#8a6210}.g-D{background:#fbe5d2;color:#9a4f12}.g-E{background:var(--bad-bg);color:var(--bad)}
+.lv{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:999px;font-size:.74rem;font-weight:700;color:#fff}
+.lv-M{background:var(--lvM)}.lv-S{background:var(--lvS)}.lv-K{background:var(--lvK)}
+.lv .jawi{font-size:.95rem;line-height:1}
+.empty{text-align:center;color:var(--muted);padding:30px 10px;font-size:.92rem}
+.rank{width:30px;height:30px;border-radius:50%;display:inline-grid;place-items:center;font-weight:800;font-size:.8rem;background:#efe7d3;color:var(--emerald)}
+.rank.r1{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--deep)}
+.rank.r2{background:#d9dde0}.rank.r3{background:#e8c9a8}
+
+/* ===== START ===== */
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:.82rem;font-weight:700;color:var(--emerald)}
+.field input{padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;font-size:.95rem;background:#fff;outline:none;transition:.2s}
+.field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+.subj{border:2px solid var(--line);border-radius:16px;padding:20px;background:#fff;cursor:pointer;transition:.2s;text-align:left;width:100%;position:relative}
+.subj:hover{border-color:var(--gold)}
+.subj.on{border-color:var(--emerald);background:var(--ok-bg);box-shadow:0 0 0 3px rgba(13,74,56,.12)}
+.subj .jawi{font-size:2rem;color:var(--emerald);line-height:1.3}
+.subj h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--ink)}
+.subj p{font-size:.82rem;color:var(--muted);margin-top:4px}
+.switch{display:flex;align-items:center;gap:10px;font-size:.88rem;cursor:pointer;user-select:none}
+.switch input{appearance:none;width:42px;height:24px;background:#d8cfb8;border-radius:999px;position:relative;cursor:pointer;transition:.2s;flex-shrink:0}
+.switch input:after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:.2s}
+.switch input:checked{background:var(--emerald)}
+.switch input:checked:after{left:21px}
+
+/* ===== QUIZ ===== */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:24px 0 12px}
+.qhead .who{font-weight:700;color:var(--emerald)}
+.qhead .meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.qcard{padding:28px}
+.qtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:10px;flex-wrap:wrap}
+.qnum{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--muted)}
+.qtext{font-size:1.75rem;line-height:2;color:var(--ink)}
+.qrumi{font-size:.92rem;color:var(--muted);font-style:italic;margin-top:8px;border-left:3px solid var(--gold);padding-left:10px}
+.opts{display:grid;gap:12px;margin-top:22px}
+.opt{display:flex;align-items:center;gap:14px;direction:rtl;width:100%;background:#fff;border:1.8px solid var(--line);border-radius:14px;padding:12px 16px;text-align:right;transition:.15s}
+.opt:hover{border-color:var(--gold);background:#fffaf0}
+.opt.on{border-color:var(--emerald);background:var(--ok-bg)}
+.opt .lab{width:40px;height:40px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;font-family:var(--jawi);font-size:1.4rem;font-weight:700;color:var(--emerald);flex-shrink:0;line-height:1}
+.opt.on .lab{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.opt .ot{flex:1}
+.opt .ot .jawi{font-size:1.45rem;line-height:1.8;display:block}
+.opt .ot .rm{display:block;direction:ltr;text-align:right;font-size:.8rem;color:var(--muted);font-style:italic}
+.qnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.pad{display:grid;grid-template-columns:repeat(auto-fill,minmax(38px,1fr));gap:7px}
+.pad button{height:38px;border-radius:9px;border:1.5px solid var(--line);background:#fff;font-weight:700;font-size:.82rem;color:var(--muted)}
+.pad button.ans{background:var(--emerald);color:#fff;border-color:var(--emerald)}
+.pad button.cur{outline:3px solid var(--gold);outline-offset:1px}
+.progress{height:6px;background:#efe7d3;border-radius:999px;overflow:hidden;margin-bottom:16px}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--emerald));transition:width .3s}
+.quiz-grid{display:grid;grid-template-columns:1fr 280px;gap:18px;align-items:start}
+@media(max-width:900px){.quiz-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.qtext{font-size:1.45rem}.opt .ot .jawi{font-size:1.25rem}.qcard{padding:20px}}
+
+/* ===== RESULT ===== */
+.ring{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;margin:0 auto;position:relative}
+.ring:before{content:"";position:absolute;inset:14px;border-radius:50%;background:var(--paper)}
+.ring .in{position:relative;text-align:center}
+.ring .pc{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--emerald);line-height:1}
+.ring .sc{font-size:.85rem;color:var(--muted)}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:8px}
+.rgrid div{height:46px;border-radius:10px;display:grid;place-items:center;font-weight:800;font-size:.85rem}
+.rgrid .t{background:var(--ok-bg);color:var(--ok);border:1.5px solid #b7dfc9}
+.rgrid .f{background:var(--bad-bg);color:var(--bad);border:1.5px solid #ebc2bc}
+.rgrid .n{background:#f1ede2;color:var(--muted);border:1.5px dashed #d8cfb8}
+
+/* ===== ADMIN ===== */
+.login{max-width:420px;margin:40px auto}
+.login .seal{width:64px;height:64px;margin:0 auto 12px}
+.err{color:var(--bad);font-size:.85rem;min-height:20px;margin-bottom:6px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--line);margin:22px 0 18px}
+.tabs button{background:none;border:none;padding:10px 16px;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;font-size:.9rem}
+.tabs button.on{color:var(--emerald);border-color:var(--gold)}
+.pane{display:none}.pane.on{display:block}
+.sk{margin-bottom:16px;padding:20px;break-inside:avoid}
+.sk .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.sk .qj{font-size:1.5rem;line-height:1.9}
+.sk .qr{font-size:.86rem;color:var(--muted);font-style:italic;margin:4px 0 12px}
+.sk ol{list-style:none;display:grid;gap:7px}
+.sk li{display:flex;gap:10px;align-items:center;direction:rtl;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#fff}
+.sk li.c{background:var(--ok-bg);border-color:#9fd3b8}
+.sk li .lab{font-family:var(--jawi);font-weight:700;font-size:1.25rem;color:var(--emerald);width:26px;text-align:center}
+.sk li .jawi{font-size:1.3rem;flex:1}
+.sk li .rm{direction:ltr;font-size:.78rem;color:var(--muted);font-style:italic}
+.sk li .tick{color:var(--ok);font-weight:800;direction:ltr}
+.ans{margin-top:12px;padding:12px 14px;background:#fbf6e6;border-left:4px solid var(--gold);border-radius:8px;font-size:.9rem}
+.ans b{color:var(--emerald)}
+.ref{font-size:.76rem;color:var(--muted);margin-top:6px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.toolbar input,.toolbar select{padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.85rem;background:#fff}
+.mini{font-size:.78rem;color:var(--muted)}
+.ia{display:grid;grid-template-columns:60px 90px 1fr 60px;gap:10px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.85rem}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:8px}
+footer{background:var(--deep);color:#b9cbc2;text-align:center;padding:26px 16px;font-size:.8rem;border-top:3px solid var(--gold)}
+footer .arab{font-size:1.25rem;color:var(--gold-2);margin-bottom:6px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--deep);color:#fff;padding:12px 20px;border-radius:12px;font-size:.88rem;z-index:200;transition:.3s;border:1px solid var(--gold)}
+.toast.on{transform:translateX(-50%) translateY(0)}
+@media print{
+  header.top,footer,.no-print,.tabs,.hero{display:none!important}
+  body{background:#fff}
+  .card{box-shadow:none;border:1px solid #ccc}
+  .pane{display:none!important}.pane.print-on{display:block!important}
+  .view{display:none!important}#v-admin{display:block!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top zellige">
+  <div class="wrap topbar">
+    <a class="brand" onclick="go('home')">
+      <div class="seal"><svg viewBox="0 0 40 40"><g fill="none" stroke="#e6c766" stroke-width="1.6"><rect x="10" y="10" width="20" height="20"/><rect x="10" y="10" width="20" height="20" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5" fill="#e6c766"/></g></svg></div>
+      <div><div class="brand-t">Bank Soalan UPKK</div><div class="brand-s">Akidah · Adab · Pecutan Akhir</div></div>
+    </a>
+    <nav class="menu">
+      <button data-nav="home" class="on" onclick="go('home')">Utama</button>
+      <button data-nav="start" onclick="go('start')">Mula Ujian</button>
+      <button data-nav="admin" onclick="go('admin')">Muallim</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HOME ===================== -->
+<section class="view on" id="v-home">
+  <div class="hero zellige">
+    <div class="wrap">
+      <div class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+      <h1>Latihan Pecutan Akhir UPKK</h1>
+      <div class="jawi-title">لاتيهن ڤچوتن اخير — عقيدة دان ادب</div>
+      <p class="lead">25 soalan bagi setiap subjek, disusun mengikut aras <b>Mudah · Sederhana · Sukar</b> dengan nisbah 1 : 2 : 3, berpandukan modul ulang kaji Akidah dan Adab.</p>
+      <div class="cta">
+        <button class="btn btn-gold" onclick="go('start')">Mula Ujian Sekarang →</button>
+        <button class="btn btn-ghost" onclick="document.getElementById('dash').scrollIntoView()">Lihat Pencapaian Murid</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" id="dash">
+    <div class="sec-h"><div><h2>Dashboard Pencapaian Murid</h2><div class="orn" style="width:160px"></div></div><div class="jawi">ڤنچاڤاين موريد</div></div>
+    <div class="grid g4" id="h-stats"></div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald)">Purata Markah Mengikut Subjek</h3><div id="h-subj" style="margin-top:8px"></div></div>
+      <div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald)">Penguasaan Mengikut Aras Soalan</h3><div id="h-level" style="margin-top:8px"></div></div>
+    </div>
+    <div class="grid g2" style="margin-top:16px">
+      <div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald);margin-bottom:10px">🏆 Papan Kedudukan (10 Terbaik)</h3><div id="h-top"></div></div>
+      <div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald);margin-bottom:10px">Taburan Gred</h3><div id="h-grade"></div></div>
+    </div>
+    <div class="card" style="margin-top:16px"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald);margin-bottom:10px">Percubaan Terkini</h3><div class="tbl-wrap" id="h-recent"></div></div>
+  </div>
+</section>
+
+<!-- ===================== START ===================== -->
+<section class="view" id="v-start">
+  <div class="wrap" style="max-width:860px">
+    <div class="sec-h"><div><h2>Daftar & Pilih Subjek</h2><div class="orn" style="width:160px"></div></div><div class="jawi">ڤيليه سوبجيک</div></div>
+    <div class="card">
+      <div class="grid g2">
+        <div class="field"><label>Nama Murid</label><input id="s-name" placeholder="cth: Muhammad Aiman bin Ahmad" maxlength="60"></div>
+        <div class="field"><label>Kelas / Darjah</label><input id="s-kelas" placeholder="cth: 6 Al-Farabi" maxlength="30"></div>
+      </div>
+      <div class="grid g2" style="margin:6px 0 18px">
+        <button class="subj" data-s="akidah" onclick="pickSubj('akidah')"><div class="jawi">عقيدة</div><h3>Akidah</h3><p>Rukun Iman · Sifat Allah · Sifat Rasul · Sam’iyyat · Kejadian Manusia</p></button>
+        <button class="subj" data-s="adab" onclick="pickSubj('adab')"><div class="jawi">ادب</div><h3>Adab</h3><p>Adab Jiran · OKU · Belajar · Ziarah · Masjid · Media Sosial · Alam Sekitar</p></button>
+      </div>
+      <label class="switch"><input type="checkbox" id="s-rumi"> Papar bantuan terjemahan Rumi (pilihan)</label>
+      <div class="err" id="s-err" style="margin-top:10px"></div>
+      <div style="display:flex;justify-content:flex-end"><button class="btn btn-em" onclick="beginQuiz()">Mula Menjawab →</button></div>
+    </div>
+    <p class="mini" style="margin-top:12px">Setiap subjek mengandungi 25 soalan aneka pilihan: 4 mudah, 8 sederhana dan 13 sukar. Jawapan dan penerangan hanya boleh dilihat oleh muallim.</p>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section class="view" id="v-quiz">
+  <div class="wrap">
+    <div class="qhead">
+      <div><div class="who" id="q-who"></div><div class="mini" id="q-sub"></div></div>
+      <div class="meta"><span class="chip">⏱ <span id="q-time">00:00</span></span><label class="switch chip"><input type="checkbox" id="q-rumi" onchange="toggleRumi(this.checked)"> Rumi</label></div>
+    </div>
+    <div class="quiz-grid">
+      <div class="card qcard">
+        <div class="progress"><i id="q-prog"></i></div>
+        <div class="qtop"><span class="qnum" id="q-num"></span><span id="q-lv"></span></div>
+        <div class="qtext jawi" id="q-text"></div>
+        <div class="qrumi" id="q-rumi-t" style="display:none"></div>
+        <div class="opts" id="q-opts"></div>
+        <div class="qnav">
+          <button class="btn btn-line" id="q-prev" onclick="move(-1)">← Sebelum</button>
+          <button class="btn btn-em" id="q-next" onclick="move(1)">Seterusnya →</button>
+        </div>
+      </div>
+      <div class="card">
+        <div style="font-weight:700;color:var(--emerald);margin-bottom:10px">Navigasi Soalan</div>
+        <div class="pad" id="q-pad"></div>
+        <div class="legend"><span>■ Dijawab</span><span>□ Belum</span></div>
+        <div style="margin-top:14px;font-size:.85rem" id="q-count"></div>
+        <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:14px" onclick="submitQuiz()">Hantar Jawapan ✓</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RESULT ===================== -->
+<section class="view" id="v-result">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec-h"><div><h2>Keputusan Ujian</h2><div class="orn" style="width:160px"></div></div><div class="jawi">کڤوتوسن اوجين</div></div>
+    <div class="card" id="r-body"></div>
+  </div>
+</section>
+
+<!-- ===================== ADMIN ===================== -->
+<section class="view" id="v-admin">
+  <div class="wrap">
+    <div id="a-login" class="login card">
+      <div class="seal"><svg viewBox="0 0 40 40"><g fill="none" stroke="#e6c766" stroke-width="1.6"><rect x="10" y="10" width="20" height="20"/><rect x="10" y="10" width="20" height="20" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5" fill="#e6c766"/></g></svg></div>
+      <h2 style="text-align:center;font-family:'Cormorant Garamond',serif;color:var(--emerald);font-size:1.8rem">Log Masuk Muallim</h2>
+      <p class="jawi" style="text-align:center;color:var(--gold);font-size:1.3rem;margin-bottom:16px">لوݢ ماسوق معلم</p>
+      <div class="field"><label>ID Muallim</label><input id="a-id" autocomplete="off"></div>
+      <div class="field"><label>Kata Laluan</label><input id="a-pw" type="password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="err" id="a-err"></div>
+      <button class="btn btn-em" style="width:100%;justify-content:center" onclick="doLogin()">Log Masuk</button>
+    </div>
+
+    <div id="a-panel" style="display:none">
+      <div class="sec-h no-print"><div><h2>Dashboard Muallim</h2><div class="orn" style="width:160px"></div></div>
+        <div class="toolbar"><button class="btn btn-line btn-sm" onclick="window.print()">🖨 Cetak Skema</button><button class="btn btn-red btn-sm" onclick="doLogout()">Log Keluar</button></div></div>
+      <div class="tabs">
+        <button class="on" data-t="t-rec" onclick="tab('t-rec')">Rekod Murid</button>
+        <button data-t="t-ska" onclick="tab('t-ska')">Skema Akidah</button>
+        <button data-t="t-skd" onclick="tab('t-skd')">Skema Adab</button>
+        <button data-t="t-ia" onclick="tab('t-ia')">Analisis Item</button>
+      </div>
+      <div class="pane on" id="t-rec">
+        <div class="card">
+          <div class="toolbar no-print" style="justify-content:space-between;margin-bottom:12px">
+            <div class="toolbar"><input id="f-q" placeholder="Cari nama / kelas…" oninput="renderRecords()"><select id="f-s" onchange="renderRecords()"><option value="">Semua subjek</option><option value="akidah">Akidah</option><option value="adab">Adab</option></select></div>
+            <div class="toolbar"><button class="btn btn-line btn-sm" onclick="exportCSV()">⬇ Eksport CSV</button><button class="btn btn-red btn-sm" onclick="clearAll()">Padam Semua</button></div>
+          </div>
+          <div class="tbl-wrap" id="a-rec"></div>
+        </div>
+      </div>
+      <div class="pane" id="t-ska"><div id="sk-akidah"></div></div>
+      <div class="pane" id="t-skd"><div id="sk-adab"></div></div>
+      <div class="pane" id="t-ia"><div class="grid g2"><div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald)">Akidah — % Murid Menjawab Betul</h3><div id="ia-akidah"></div></div><div class="card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--emerald)">Adab — % Murid Menjawab Betul</h3><div id="ia-adab"></div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="arab">رَبِّ زِدْنِيْ عِلْمًا</div>
+  Bank Soalan Latihan UPKK · Akidah & Adab · Disusun berdasarkan modul ulang kaji pecutan akhir · © 2026
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   BANK SOALAN — susunan: Mudah (1–4), Sederhana (5–12), Sukar (13–25)
+   Struktur: lv, j (Jawi), r (Rumi), o [[Jawi, Rumi]], a (indeks jawapan), e (penerangan), ref
+   ============================================================ */
+const BANK = {
+akidah:{ name:'Akidah', jawi:'عقيدة', q:[
+/* ---------- MUDAH ---------- */
+{lv:'M', j:'براڤاکه بيلڠن صيفت واجب باݢي الله سبحانه وتعالى؟', r:'Berapakah bilangan sifat wajib bagi Allah SWT?',
+ o:[['10','10'],['13','13'],['20','20'],['25','25']], a:2,
+ e:'Allah SWT mempunyai 20 sifat wajib (Sifat Dua Puluh) yang wajib diketahui oleh setiap mukallaf. Pilihan 13 ialah perangkap kerana jadual modul hanya memaparkan 13 sifat (Wujud hingga Basar) sebagai fokus, bukan jumlah keseluruhan.',
+ ref:'Modul Akidah hlm. 5 & 8 (Latihan 2, no. 1)'},
+{lv:'M', j:'ملائکة يڠ برتوݢس مڽمڤايکن وحي کڤد ڤارا رسول اياله', r:'Malaikat yang bertugas menyampaikan wahyu kepada para rasul ialah',
+ o:[['جبريل','Jibril'],['ميکائيل','Mikail'],['اسرافيل','Israfil'],['عزرائيل','Izrail']], a:0,
+ e:'Jibril bertugas menyampaikan wahyu. Mikail menurunkan hujan dan rezeki, Israfil meniup sangkakala, manakala Izrail mencabut nyawa.',
+ ref:'Modul Akidah hlm. 11 (Tugas Para Malaikat)'},
+{lv:'M', j:'مقصود صيفت واجب وجود اياله', r:'Maksud sifat wajib Wujud ialah',
+ o:[['ککل','Kekal'],['سديا اد','Sedia ada'],['اد','Ada'],['اسا','Esa']], a:2,
+ e:'Wujud bermaksud ADA, lawannya ‘Adam (tiada). Kekal ialah Baqa’, sedia ada ialah Qidam, dan Esa ialah Wahdaniyyah.',
+ ref:'Modul Akidah hlm. 5 (Sifat Wajib & Mustahil)'},
+{lv:'M', j:'کتاب يڠ دتورونکن کڤد نبي موسى عليه السلام اياله', r:'Kitab yang diturunkan kepada Nabi Musa a.s. ialah',
+ o:[['زبور','Zabur'],['تورة','Taurat'],['انجيل','Injil'],['القرءان','Al-Quran']], a:1,
+ e:'Taurat diturunkan kepada Nabi Musa a.s., Zabur kepada Nabi Daud a.s., Injil kepada Nabi Isa a.s., dan al-Quran kepada Nabi Muhammad SAW.',
+ ref:'Modul Akidah hlm. 2–3 (Beriman Kepada Kitab)'},
+/* ---------- SEDERHANA ---------- */
+{lv:'S', j:'انتارا بريکوت، يڠ مانکه صيفت مستحيل يڠ منجادي لاون باݢي صيفت قدرة؟', r:'Antara berikut, yang manakah sifat mustahil yang menjadi lawan bagi sifat Qudrah?',
+ o:[['کراهة','Karahah (terpaksa)'],['جهل','Jahl (jahil)'],['عمي','‘Umyun (buta)'],['عجز','‘Ajzun (lemah)']], a:3,
+ e:'Qudrah (berkuasa) berlawanan dengan ‘Ajzun (lemah). Karahah ialah lawan Iradah, Jahl lawan ‘Ilm, dan ‘Umyun lawan Basar.',
+ ref:'Modul Akidah hlm. 5 & 6'},
+{lv:'S', j:'ڤاسڠن صيفت واجب دان صيفت مستحيل يڠ بتول اياله', r:'Pasangan sifat wajib dan sifat mustahil yang betul ialah',
+ o:[['سمع – عمي','Sam‘ – ‘Umyun'],['بصر – صم','Basar – Summun'],['علم – جهل','‘Ilm – Jahl'],['حياة – عجز','Hayah – ‘Ajzun']], a:2,
+ e:'‘Ilm (mengetahui) berlawanan dengan Jahl (jahil). Pasangan sebenar yang lain: Sam‘ – Summun (pekak), Basar – ‘Umyun (buta), Hayah – Mautun (mati).',
+ ref:'Modul Akidah hlm. 5'},
+{lv:'S', j:'صيفت واجب باݢي رسول يڠ برمقصود مڽمڤايکن وحي کڤد اومت اياله', r:'Sifat wajib bagi rasul yang bermaksud menyampaikan wahyu kepada umat ialah',
+ o:[['صدق','Siddiq'],['امانة','Amanah'],['تبليغ','Tabligh'],['فطانة','Fatanah']], a:2,
+ e:'Tabligh bermaksud menyampaikan; lawannya Kitman (menyembunyikan). Siddiq = benar, Amanah = jujur/dipercayai, Fatanah = bijaksana. Akronim modul: FAST.',
+ ref:'Modul Akidah hlm. 10 (Sifat Wajib Rasul: FAST)'},
+{lv:'S', j:'ملائکة ميکائيل برتوݢس', r:'Malaikat Mikail bertugas',
+ o:[['منچاتت عملن باءيق','Mencatat amalan baik'],['منورونکن هوجن دان رزقي','Menurunkan hujan dan rezeki'],['منيوڤ سڠکاکالا','Meniup sangkakala'],['منجاݢ شرݢ','Menjaga syurga']], a:1,
+ e:'Mikail menurunkan hujan dan rezeki. Mencatat amalan baik ialah tugas Raqib, meniup sangkakala tugas Israfil, menjaga syurga tugas Ridhwan.',
+ ref:'Modul Akidah hlm. 11'},
+{lv:'S', j:'سوسونن ڤروسيس کجادين منوسيا يڠ بتول اياله', r:'Susunan proses kejadian manusia yang betul ialah',
+ o:[['علقة، نطفة، جنين، مضغة','‘Alaqah, Nutfah, Janin, Mudghah'],['نطفة، مضغة، علقة، جنين','Nutfah, Mudghah, ‘Alaqah, Janin'],['مضغة، علقة، نطفة، جنين','Mudghah, ‘Alaqah, Nutfah, Janin'],['نطفة، علقة، مضغة، جنين','Nutfah, ‘Alaqah, Mudghah, Janin']], a:3,
+ e:'Susunan yang betul: Nutfah (setitis air mani) → ‘Alaqah (segumpal darah) → Mudghah (seketul daging) → Janin.',
+ ref:'Modul Akidah hlm. 9 (4 Proses Kejadian Manusia)'},
+{lv:'S', j:'حيوان اونتا دسبوت دالم سورة', r:'Haiwan unta disebut dalam surah',
+ o:[['الحج','Al-Hajj'],['الغاشية','Al-Ghasyiyah'],['العنکبوت','Al-‘Ankabut'],['الجمعة','Al-Jumu‘ah']], a:1,
+ e:'Unta disebut dalam Surah al-Ghasyiyah. Mengikut modul: al-Hajj (lalat), al-‘Ankabut (labah-labah), al-Jumu‘ah (keldai), al-Maidah (burung), al-A‘raf (anjing).',
+ ref:'Modul Akidah hlm. 9 (Haiwan Dalam Al-Quran)'},
+{lv:'S', j:'ميزان اياله', r:'Mizan ialah',
+ o:[['جمبتن يڠ دبنتڠ مرنتسي نراک','Jambatan yang dibentang merentasi neraka'],['تيمبڠن سموا عملن منوسيا','Timbangan semua amalan manusia'],['ڤڠيراءن باݢي ستياڤ عملن منوسيا','Pengiraan bagi setiap amalan manusia'],['تمڤت ڤرهيمڤونن اݢوڠ منوسيا دان جين','Tempat perhimpunan agung manusia dan jin']], a:1,
+ e:'Mizan ialah timbangan amalan; berat amal baik ke syurga, berat amal buruk ke neraka. Jambatan = Titian Sirat, pengiraan = Hisab, tempat perhimpunan = Padang Mahsyar.',
+ ref:'Modul Akidah hlm. 12'},
+{lv:'S', j:'السمعيات برمقصود', r:'As-Sam‘iyyat bermaksud',
+ o:[['ڤرکارا يڠ داڤت دليهت دڠن مات کاسر','Perkara yang dapat dilihat dengan mata kasar'],['ڤرکارا يڠ هاڽ ممرلوکن عقل اونتوق ممهميڽ','Perkara yang hanya memerlukan akal untuk memahaminya'],['ڤرکارا غيب يڠ برلاکو د لوار باتس ڤميکيرن منوسيا','Perkara ghaib yang berlaku di luar batas pemikiran manusia'],['ڤرکارا يڠ تيدق ڤرلو دڤرچاياءي','Perkara yang tidak perlu dipercayai']], a:2,
+ e:'Sam‘iyyat ialah perkara ghaib di luar batas pemikiran manusia, tidak dapat digambarkan dengan pancaindera dan hanya diketahui melalui wahyu. Hukum beriman dengannya ialah WAJIB.',
+ ref:'Modul Akidah hlm. 2 & 11'},
+/* ---------- SUKAR ---------- */
+{lv:'K', j:'علي ݢاݢل دالم ڤڤريقساءن لالو برکات، «اکو تيدق ڤرلو بلاجر لاݢي کران سموا تله دتنتوکن الله.» کڽاتاءن علي تيدق تڤت کران', r:'Ali gagal dalam peperiksaan lalu berkata, “Aku tidak perlu belajar lagi kerana semua telah ditentukan Allah.” Kenyataan Ali tidak tepat kerana',
+ o:[['کجاياءن دالم ڤڤريقساءن تيدق دتنتوکن اوليه الله','Kejayaan dalam peperiksaan tidak ditentukan oleh Allah'],['کجاياءن دالم ڤڤريقساءن اياله قضاء معلق يڠ بوليه براوبه دڠن اوسها دان دعاء','Kejayaan dalam peperiksaan ialah qada mu‘allaq yang boleh berubah dengan usaha dan doa'],['کجاياءن دالم ڤڤريقساءن اياله قضاء مبرم يڠ تيدق بوليه براوبه','Kejayaan dalam peperiksaan ialah qada mubram yang tidak boleh berubah'],['منوسيا تيدق ڤرلو برتوکل سلڤس براوسها','Manusia tidak perlu bertawakal selepas berusaha']], a:1,
+ e:'Kejayaan peperiksaan termasuk Qada Mu‘allaq — ketentuan Allah yang bergantung pada usaha dan doa. Islam menuntut berusaha, kemudian bertawakal (menyerahkan hasil kepada Allah). Pilihan lain bercanggah dengan konsep beriman kepada Qada dan Qadar.',
+ ref:'Modul Akidah hlm. 2 (Tawakal) & 5 (Qada Mubram / Mu‘allaq)'},
+{lv:'K', j:'انتارا بريکوت، يڠ مانکه چونتوه قضاء مبرم؟', r:'Antara berikut, yang manakah contoh qada mubram?',
+ o:[['کجاياءن دالم ڤلاجرن','Kejayaan dalam pelajaran'],['کصيحتن توبوه بادن','Kesihatan tubuh badan'],['کاياءن حاصيل درڤد اوسها','Kekayaan hasil daripada usaha'],['کماتين سسأورڠ','Kematian seseorang']], a:3,
+ e:'Qada Mubram ialah ketentuan Allah yang muktamad dan tidak boleh diubah, seperti ajal (kematian) dan jantina. Kejayaan, kesihatan dan kekayaan ialah Qada Mu‘allaq yang dikaitkan dengan usaha dan doa.',
+ ref:'Modul Akidah hlm. 5'},
+{lv:'K', j:'سأورڠ موريد سنتياس سدر اکن کلمهن ديري دان تاکوت کڤد الله. اين اداله کسن برايمان دڠن صيفت', r:'Seorang murid sentiasa sedar akan kelemahan diri dan takut kepada Allah. Ini adalah kesan beriman dengan sifat',
+ o:[['قدرة','Qudrah'],['قيامه بنفسه','Qiyamuhu binafsihi'],['سمع','Sam‘'],['بقاء','Baqa’']], a:1,
+ e:'Kesan beriman dengan sifat Qiyamuhu binafsihi (Allah berdiri dengan sendiri-Nya): sedar kelemahan diri dan sentiasa takut kepada Allah. Kesan Qudrah pula ialah sentiasa mengharap bantuan dan mengakui kehebatan Allah.',
+ ref:'Modul Akidah hlm. 13'},
+{lv:'K', j:'امينه تيدق منيرو دالم اوجين والاوڤون ݢورو تياد د دالم کلس کران يقين الله سنتياس مليهت ڤربواتنڽ. کيقينن امينه برکاءيتن دڠن صيفت', r:'Aminah tidak meniru dalam ujian walaupun guru tiada di dalam kelas kerana yakin Allah sentiasa melihat perbuatannya. Keyakinan Aminah berkaitan dengan sifat',
+ o:[['سمع','Sam‘ (Maha Mendengar)'],['حياة','Hayah (Maha Hidup)'],['بصر','Basar (Maha Melihat)'],['قدرة','Qudrah (Maha Berkuasa)']], a:2,
+ e:'Keyakinan bahawa Allah sentiasa melihat merujuk sifat Basar. Kesannya: takut melakukan kejahatan dan hidup dirahmati Allah SWT.',
+ ref:'Modul Akidah hlm. 5 & 13'},
+{lv:'K', j:'منوسيا ممڤوڽاءي کتورونن، ڤاسڠن دان ککورڠن. چيري٢ بربيلڠ اين تيدق اد ڤد الله کران الله برصيفت', r:'Manusia mempunyai keturunan, pasangan dan kekurangan. Ciri-ciri berbilang ini tidak ada pada Allah kerana Allah bersifat',
+ o:[['حياة','Hayah'],['قدم','Qidam'],['ارادة','Iradah'],['وحدانية','Wahdaniyyah']], a:3,
+ e:'Ciri berbilang pada manusia (ada keturunan, lelaki dan perempuan, cacat cela, berkahwin dan berpasangan) mustahil bagi Allah kerana Allah bersifat Wahdaniyyah (Esa). Lawannya Ta‘addud (berbilang).',
+ ref:'Modul Akidah hlm. 7 (Sifat Wahdaniyyah)'},
+{lv:'K', j:'ڤرڽاتاءن يڠ بتول تنتڠ صيفت حياة الله اياله', r:'Pernyataan yang betul tentang sifat Hayah Allah ialah',
+ o:[['حياة الله ممرلوکن ڤرانتاراءن اونتوق هيدوڤ','Hayah Allah memerlukan perantaraan untuk hidup'],['حياة الله تيدق ممرلوکن ڤرانتاراءن','Hayah Allah tidak memerlukan perantaraan'],['حياة الله اد تيمڤوه ماس','Hayah Allah ada tempoh masa'],['حياة الله برصيفت بهارو','Hayah Allah bersifat baharu']], a:1,
+ e:'Hayah Allah tidak memerlukan perantaraan (seperti udara), tiada tempoh masa, sedia ada dan kekal selamanya, serta tiada siapa yang menghidupkan-Nya. Pilihan lain ialah ciri hayat manusia.',
+ ref:'Modul Akidah hlm. 7 (Hayat Allah vs Hayat Manusia)'},
+{lv:'K', j:'د عالم برزخ، اورڠ مؤمن يڠ بڽق ملاکوکن معصيت اکن', r:'Di alam barzakh, orang mukmin yang banyak melakukan maksiat akan',
+ o:[['منداڤت نعمت هيڠݢ هاري قيامة','Mendapat nikmat hingga hari kiamat'],['منداڤت عذاب قبور','Mendapat azab kubur'],['منداڤت عذاب قبور هيڠݢ هاري قيامة','Mendapat azab kubur hingga hari kiamat'],['تيدق منداڤت اڤ٢ ݢنجرن','Tidak mendapat apa-apa ganjaran']], a:1,
+ e:'Alam barzakh ada tiga golongan: (1) mukmin taat — nikmat hingga kiamat; (2) mukmin ‘asi (maksiat) — mendapat azab kubur; (3) orang kafir — azab kubur hingga kiamat. Perangkap: pilihan ketiga ialah nasib orang kafir.',
+ ref:'Modul Akidah hlm. 11 (Alam Barzakh)'},
+{lv:'K', j:'نبي محمد ﷺ ڤرنه ساکيت دان برکهوين. حال اين منونجوقکن', r:'Nabi Muhammad SAW pernah sakit dan berkahwin. Hal ini menunjukkan',
+ o:[['صيفت مستحيل باݢي رسول','Sifat mustahil bagi rasul'],['صيفت هاروس يڠ تيدق مڠورڠکن کدودوقن مريک سباݢاي رسول','Sifat harus yang tidak mengurangkan kedudukan mereka sebagai rasul'],['صيفت واجب يڠ مستي اد ڤد ستياڤ رسول','Sifat wajib yang mesti ada pada setiap rasul'],['رسول تيدق لايق منجادي ڤميمڤين','Rasul tidak layak menjadi pemimpin']], a:1,
+ e:'Sifat harus rasul ialah sifat manusia biasa (makan, minum, tidur, sakit, berkahwin) yang tidak mengurangkan kedudukan mereka sebagai rasul.',
+ ref:'Modul Akidah hlm. 2 & 10'},
+{lv:'K', j:'مستحيل باݢي رسول مڽمبوڽيکن وحي درڤد اومتڽ. صيفت مستحيل اين دناماکن', r:'Mustahil bagi rasul menyembunyikan wahyu daripada umatnya. Sifat mustahil ini dinamakan',
+ o:[['کذب','Kizb (dusta)'],['خيانة','Khianat'],['کتمان','Kitman (menyembunyikan)'],['بلادة','Baladah (bodoh)']], a:2,
+ e:'Kitman (menyembunyikan) ialah lawan Tabligh. Pasangan lain: Siddiq – Kizb, Amanah – Khianat, Fatanah – Baladah.',
+ ref:'Modul Akidah hlm. 10'},
+{lv:'K', j:'انتارا بريکوت، يڠ مانکه بوکن تندا بسر هاري قيامة؟', r:'Antara berikut, yang manakah BUKAN tanda besar hari kiamat?',
+ o:[['متاهاري تربيت دري بارت','Matahari terbit dari barat'],['کمونچولن دجال','Kemunculan Dajjal'],['تورونڽ نبي عيسى عليه السلام','Turunnya Nabi Isa a.s.'],['اورڠ برلومبا٢ ممبينا بڠونن يڠ تيڠݢي','Orang berlumba-lumba membina bangunan yang tinggi']], a:3,
+ e:'Berlumba-lumba membina bangunan tinggi ialah TANDA KECIL kiamat (disebut dalam hadis Jibril). Tanda besar termasuk kemunculan Dajjal, turunnya Nabi Isa a.s., keluarnya Yakjuj dan Makjuj, dan matahari terbit dari barat.',
+ ref:'Modul Akidah hlm. 4 (Tanda Kecil & Tanda Besar HK)'},
+{lv:'K', j:'هاري سموا منوسيا دهيمڤونکن د ڤادڠ محشر دناماکن', r:'Hari semua manusia dihimpunkan di Padang Mahsyar dinamakan',
+ o:[['يوم البعث','Yaumul Ba‘th'],['يوم الحساب','Yaumul Hisab'],['يوم الحشر','Yaumul Hasyr'],['يوم الجزاء','Yaumul Jaza’']], a:2,
+ e:'Yaumul Hasyr = hari perhimpunan. Yaumul Ba‘th = hari kebangkitan, Yaumul Hisab = hari perhitungan amalan, Yaumul Jaza’ = hari pembalasan.',
+ ref:'Modul Akidah hlm. 4 (Nama-nama Hari Kiamat)'},
+{lv:'K', j:'انتارا بريکوت، يڠ مانکه کسن برايمان دڠن صيفت سمع؟', r:'Antara berikut, yang manakah kesan beriman dengan sifat Sam‘?',
+ o:[['سوک مننتوت علمو','Suka menuntut ilmu'],['سنتياس مڠهارڤ بنتوان الله','Sentiasa mengharap bantuan Allah'],['منجاݢ توتور بيچارا','Menjaga tutur bicara'],['هيدوڤ درحمتي الله','Hidup dirahmati Allah']], a:2,
+ e:'Kesan beriman dengan sifat Sam‘ (Maha Mendengar): menjaga tutur bicara dan dikasihi Allah. Suka menuntut ilmu ialah kesan sifat ‘Ilm, mengharap bantuan Allah kesan Qudrah, hidup dirahmati kesan Basar.',
+ ref:'Modul Akidah hlm. 13'},
+{lv:'K', j:'انتارا بريکوت، يڠ مانکه بوکن چارا منونجوقکن چينتا کڤد القرءان؟', r:'Antara berikut, yang manakah BUKAN cara menunjukkan cinta kepada al-Quran?',
+ o:[['ممباچ القرءان ستياڤ هاري','Membaca al-Quran setiap hari'],['مڠحفظ سورة٢ ڤندق','Menghafaz surah-surah pendek'],['مڠعملکن اجرن القرءان دالم کهيدوڤن','Mengamalkan ajaran al-Quran dalam kehidupan'],['ملتقکن القرءان د تمڤت يڠ کوتور','Meletakkan al-Quran di tempat yang kotor']], a:3,
+ e:'Meletakkan al-Quran di tempat kotor ialah perbuatan yang tidak menghormati kalam Allah. Membaca setiap hari, menghafaz dan mengamalkan ajarannya ialah tanda cinta kepada al-Quran.',
+ ref:'Modul Akidah hlm. 3 (2 Cara Cinta Al-Quran)'}
+]},
+
+adab:{ name:'Adab', jawi:'ادب', q:[
+/* ---------- MUDAH ---------- */
+{lv:'M', j:'انتارا بريکوت، يڠ مانکه محرم باݢي سأورڠ انق ڤرمڤوان؟', r:'Antara berikut, yang manakah mahram bagi seorang anak perempuan?',
+ o:[['سڤوڤو للاکي','Sepupu lelaki'],['جيرن للاکي','Jiran lelaki'],['باڤ','Bapa'],['کاون للاکي','Kawan lelaki']], a:2,
+ e:'Mahram ialah orang yang haram dinikahi selama-lamanya kerana pertalian darah, susuan atau perkahwinan, contohnya bapa. Sepupu ialah saudara-mara tetapi BUKAN mahram.',
+ ref:'Modul Adab hlm. 2–3 (Mahram)'},
+{lv:'M', j:'دعاء «اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ مِنْ فَضْلِكَ» دباچ کتيک', r:'Doa “Allahumma inni as’aluka min fadlik” dibaca ketika',
+ o:[['ماسوق مسجد','Masuk masjid'],['کلوار مسجد','Keluar masjid'],['ماکن','Makan'],['تيدور','Tidur']], a:1,
+ e:'Doa ini dibaca ketika KELUAR masjid. Doa masuk masjid ialah «اَللّٰهُمَّ افْتَحْ لِيْ أَبْوَابَ رَحْمَتِكَ».',
+ ref:'Modul Adab hlm. 17 (no. 2)'},
+{lv:'M', j:'کيت هندقله ماسوق کدالم مسجد دڠن مندهولوکن کاکي', r:'Kita hendaklah masuk ke dalam masjid dengan mendahulukan kaki',
+ o:[['کيري','Kiri'],['کانن','Kanan'],['کدوا٢','Kedua-dua'],['مان٢','Mana-mana']], a:1,
+ e:'Sunat mendahulukan kaki KANAN ketika masuk masjid dan kaki KIRI ketika keluar.',
+ ref:'Modul Adab hlm. 14 & 18 (Adab Masuk & Keluar Masjid)'},
+{lv:'M', j:'اورڠ يڠ داتڠ ملاوت ک رومه کيت اونتوق سسواتو اوروسن اتاو توجوان دڤڠݢيل', r:'Orang yang datang melawat ke rumah kita untuk sesuatu urusan atau tujuan dipanggil',
+ o:[['جيرن','Jiran'],['تتامو','Tetamu'],['ساودارا-مارا','Saudara-mara'],['محرم','Mahram']], a:1,
+ e:'Tetamu ialah orang yang datang melawat ke rumah kita untuk sesuatu urusan atau tujuan. Jiran ialah orang yang tinggal berdekatan rumah kita.',
+ ref:'Modul Adab hlm. 2 (Pengertian Penting)'},
+/* ---------- SEDERHANA ---------- */
+{lv:'S', j:'اعتکاف برمقصود', r:'Iktikaf bermaksud',
+ o:[['برجالن٢ د سکيتر کاوسن مسجد','Berjalan-jalan di sekitar kawasan masjid'],['ممبرسيهکن مسجد ستياڤ مڠݢو','Membersihkan masjid setiap minggu'],['بردييم ديري د دالم مسجد دڠن نية مندکتکن ديري کڤد الله','Berdiam diri di dalam masjid dengan niat mendekatkan diri kepada Allah'],['برهنتي سبنتر د مسجد سماس ڤرجالنن','Berhenti sebentar di masjid semasa perjalanan']], a:2,
+ e:'Iktikaf ialah berdiam diri di dalam masjid dengan niat mendekatkan diri kepada Allah serta menumpukan ibadah seperti solat, zikir, membaca al-Quran dan berdoa dalam suatu tempoh tertentu.',
+ ref:'Modul Adab hlm. 2 (Iktikaf)'},
+{lv:'S', j:'انتارا بريکوت، يڠ مانکه حق جيرن يڠ ڤرلو دڤليهارا؟', r:'Antara berikut, yang manakah hak jiran yang perlu dipelihara?',
+ o:[['مڠمبيل هرتا جيرن تنڤا ايذين','Mengambil harta jiran tanpa izin'],['منددهکن کعايبن جيرن','Mendedahkan keaiban jiran'],['ممبوات بيسيڠ ڤد وقتو مالم','Membuat bising pada waktu malam'],['تيدق مڽاکيتي جيرن','Tidak menyakiti jiran']], a:3,
+ e:'Hak jiran: tidak menyakiti jiran, menjaga harta benda jiran, memberi kasih sayang dan layanan baik, menghormati ahli keluarganya dan berbuat baik kepadanya. Pilihan lain bercanggah dengan adab berjiran (termasuk menutup keaiban jiran).',
+ ref:'Modul Adab hlm. 5 (Hak Jiran)'},
+{lv:'S', j:'اورڠ دواس اياله اورڠ يڠ تله منچاڤاي عمور', r:'Orang dewasa ialah orang yang telah mencapai umur',
+ o:[['12 تاهون اتاو لبيه','12 tahun atau lebih'],['15 تاهون اتاو لبيه','15 tahun atau lebih'],['18 تاهون اتاو لبيه','18 tahun atau lebih'],['21 تاهون اتاو لبيه','21 tahun atau lebih']], a:1,
+ e:'Mengikut pengertian dalam modul, orang dewasa ialah orang yang telah mencapai umur 15 tahun atau lebih, lelaki atau perempuan, yang sempurna akal dan bertanggungjawab.',
+ ref:'Modul Adab hlm. 2 (Orang Dewasa)'},
+{lv:'S', j:'بواه تاڠن يڠ ڤاليڠ سسواي دباوا کتيک منزيارهي اورڠ ساکيت اياله', r:'Buah tangan yang paling sesuai dibawa ketika menziarahi orang sakit ialah',
+ o:[['اءير برݢس','Air bergas'],['بواه٢ن','Buah-buahan'],['ماکنن ريڠن','Makanan ringan'],['ماکنن سݢرا','Makanan segera']], a:1,
+ e:'Buah-buahan berkhasiat dan sesuai untuk pesakit. Modul menyenaraikan air bergas, makanan ringan dan makanan segera sebagai buah tangan yang TIDAK sesuai.',
+ ref:'Modul Adab hlm. 3 (Buah Tangan Tidak Sesuai)'},
+{lv:'S', j:'حديث «اَلطُّهُوْرُ شَطْرُ الْإِيْمَانِ» مروڤاکن دليل تنتڠ', r:'Hadis “At-tuhuru syatrul iman” merupakan dalil tentang',
+ o:[['اعتکاف','Iktikaf'],['مننتوت علمو','Menuntut ilmu'],['کبرسيهن','Kebersihan'],['ممولياکن تتامو','Memuliakan tetamu']], a:2,
+ e:'Maksud hadis: “Kebersihan itu sebahagian daripada iman.” Ia menjadi dalil kebersihan, bukan dalil iktikaf.',
+ ref:'Modul Adab hlm. 17 (no. 1)'},
+{lv:'S', j:'انتارا بريکوت، يڠ مانکه ادب يڠ بتول کتيک برادا برسام اورڠ کلاءينن اوڤاي؟', r:'Antara berikut, yang manakah adab yang betul ketika berada bersama orang kelainan upaya?',
+ o:[['ممڠݢيل مريک دڠن ݢلرن يڠ تيدق ايلوق','Memanggil mereka dengan gelaran yang tidak elok'],['سݢرا مڠهولورکن بنتوان جک دڤرلوکن','Segera menghulurkan bantuan jika diperlukan'],['مڠݢوناکن کمودهن خاص يڠ دسدياکن اونتوق مريک','Menggunakan kemudahan khas yang disediakan untuk mereka'],['ممڤرسنداکن کلاکوان مريک','Mempersendakan kelakuan mereka']], a:1,
+ e:'Adab dengan OKU: segera hulurkan bantuan, mendoakan kesejahteraan, mengutamakan mereka, tidak memanggil dengan gelaran buruk, tidak menyinggung perasaan dan tidak menggunakan kemudahan khas mereka.',
+ ref:'Modul Adab hlm. 6'},
+{lv:'S', j:'انتارا بريکوت، يڠ مانکه لارڠن کتيک برمشوارت؟', r:'Antara berikut, yang manakah larangan ketika bermesyuarat?',
+ o:[['منريما تݢورن دڠن باءيق','Menerima teguran dengan baik'],['منومڤوکن ڤرهاتين','Menumpukan perhatian'],['ممبري ڤندڤت دڠن سوڤن','Memberi pendapat dengan sopan'],['داتڠ لوت دان ليک','Datang lewat dan leka']], a:3,
+ e:'Larangan mesyuarat (2L): Lewat dan Leka. Adab (2T): Tegur — menerima teguran dengan baik; Tumpu — menumpukan perhatian.',
+ ref:'Modul Adab hlm. 12 (Adab Ketika Bermesyuarat)'},
+{lv:'S', j:'انتارا بريکوت، يڠ مانکه فائدة برادب کتيک بلاجر؟', r:'Antara berikut, yang manakah faedah beradab ketika belajar?',
+ o:[['تيدق ممهمي ڤلاجرن','Tidak memahami pelajaran'],['علمو دبرکتي الله','Ilmu diberkati Allah'],['موده برڤوتوس اسا','Mudah berputus asa'],['تيدق دسوکاي اوليه رکن','Tidak disukai oleh rakan']], a:1,
+ e:'Faedah beradab ketika belajar: ilmu diberkati Allah, mudah ingat dan faham, dipandang mulia, berjaya di dunia dan akhirat. Pilihan lain ialah AKIBAT tidak beradab.',
+ ref:'Modul Adab hlm. 7'},
+/* ---------- SUKAR ---------- */
+{lv:'K', j:'سماس مڠحاضيري مجليس علمو، فارس دان رکن٢ڽ بربوال سسام سنديري سمبيل برماءين تيليفون. اڤاکه عاقبة درڤد ڤربواتن مريک؟', r:'Semasa menghadiri majlis ilmu, Faris dan rakan-rakannya berbual sesama sendiri sambil bermain telefon. Apakah akibat daripada perbuatan mereka?',
+ o:[['علمو دبرکتي الله','Ilmu diberkati Allah'],['موده مڠيڠتي ڤلاجرن','Mudah mengingati pelajaran'],['سوکر ممهمي علمو يڠ دسمڤايکن','Sukar memahami ilmu yang disampaikan'],['دڤندڠ موليا اوليه مشارکت','Dipandang mulia oleh masyarakat']], a:2,
+ e:'Akibat tidak beradab dalam majlis ilmu (2i): sukar memahami ilmu, dan berisiko menyampaikan ilmu yang salah kepada orang lain. Pilihan lain ialah kelebihan beradab.',
+ ref:'Modul Adab hlm. 15 & 20'},
+{lv:'K', j:'امڤت اورڠ موريد منونايکن صلاة جمعة. سياڤاکه يڠ تيدق برادب؟', r:'Empat orang murid menunaikan solat Jumaat. Siapakah yang tidak beradab?',
+ o:[['ايمن داتڠ اول دان دودوق د صف هادڤن','Aiman datang awal dan duduk di saf hadapan'],['هيکل بربوال دڠن رکنڽ کتيک خطيب سدڠ برخطبه','Haikal berbual dengan rakannya ketika khatib sedang berkhutbah'],['عمر مندڠر خطبه دڠن تکون','Umar mendengar khutbah dengan tekun'],['فائز مماکاي ڤاکاين يڠ برسيه دان وڠي','Faiz memakai pakaian yang bersih dan wangi']], a:1,
+ e:'Berbual ketika khatib berkhutbah dilarang dan boleh menghilangkan pahala Jumaat. Datang awal, duduk di saf hadapan, mendengar khutbah dengan tekun dan berpakaian bersih serta wangi ialah adab yang dituntut.',
+ ref:'Modul Adab hlm. 18–19 (Larangan ketika solat Jumaat)'},
+{lv:'K', j:'سيتي منريما سواتو بريتا ملالوءي ميديا سوسيال. اڤاکه تيندقن يڠ سڤاتوتڽ دلاکوکن اوليه سيتي؟', r:'Siti menerima suatu berita melalui media sosial. Apakah tindakan yang sepatutnya dilakukan oleh Siti?',
+ o:[['مماستيکن کصحيحن معلومت ترلبيه دهولو','Memastikan kesahihan maklumat terlebih dahulu'],['تروس مڽيبرکن کڤد سموا کنالن','Terus menyebarkan kepada semua kenalan'],['منمبه معلومت مڠيکوت ڤندڤت سنديري','Menambah maklumat mengikut pendapat sendiri'],['ممبري کومين يڠ کاسر کڤد ڤڠيريم','Memberi komen yang kasar kepada pengirim']], a:0,
+ e:'Adab bermedia sosial (2S): Sahih — pastikan kesahihan maklumat; Sesuai — gunakan bahasa yang sesuai. Larangan: menyampaikan maklumat salah dan mengeluarkan kata-kata kesat.',
+ ref:'Modul Adab hlm. 13 & 16 (no. 6)'},
+{lv:'K', j:'ڤيلي اءير د تندس عوام تيدق دتوتوڤ راڤت سلڤس دݢوناکن. اڤاکه عاقبة درڤد ڤربواتن ترسبوت؟', r:'Pili air di tandas awam tidak ditutup rapat selepas digunakan. Apakah akibat daripada perbuatan tersebut?',
+ o:[['ڤڠݢونا لاين براس سليسا','Pengguna lain berasa selesa'],['برلاکو ڤمبازيرن اءير','Berlaku pembaziran air'],['کمودهن عوام ترڤليهارا','Kemudahan awam terpelihara'],['مشارکت منجادي لبيه هرموني','Masyarakat menjadi lebih harmoni']], a:1,
+ e:'Akibat tidak beradab dengan harta benda awam (2B): Bazir — berlaku pembaziran; Buruk — kemudahan cepat rosak dan memberi imej buruk.',
+ ref:'Modul Adab hlm. 13 & 20'},
+{lv:'K', j:'کمال دان رکن٢ڽ منزيارهي جيرن يڠ منيڠݢل دنيا. تيندقن يڠ ڤاليڠ سسواي اياله', r:'Kamal dan rakan-rakannya menziarahi jiran yang meninggal dunia. Tindakan yang paling sesuai ialah',
+ o:[['بربوال کوسوڠ دڠن سوارا يڠ کوات','Berbual kosong dengan suara yang kuat'],['مماکاي ڤاکاين يڠ براورنا تراڠ','Memakai pakaian yang berwarna terang'],['منناڠکن کلوارݢ سي ماتي دان مندعاکن سي ماتي','Menenangkan keluarga si mati dan mendoakan si mati'],['برݢورو سندا دڠن رکن٢ لاين','Bergurau senda dengan rakan-rakan lain']], a:2,
+ e:'Adab ziarah kematian (2M): menenangkan keluarga si mati dan mendoakan si mati. Larangan (2B): berbual kosong dan membuat bising.',
+ ref:'Modul Adab hlm. 11 (Adab Ziarah Kematian)'},
+{lv:'K', j:'ڤق علي ممبکر سمڤه د هلامن رومه ستياڤ ڤتڠ سهيڠݢ جيرن٢ڽ مڠالمي باتوق. جنيس ڤنچمرن دان چارا ترباءيق مڠاتسيڽ اياله', r:'Pak Ali membakar sampah di halaman rumah setiap petang sehingga jiran-jirannya mengalami batuk. Jenis pencemaran dan cara terbaik mengatasinya ialah',
+ o:[['ڤنچمرن بوڽي، منوتوڤ ڤينتو دان تيڠکڤ رومه','Pencemaran bunyi, menutup pintu dan tingkap rumah'],['ڤنچمرن اءير، ممبوڠ سمڤه ک دالم سوڠاي','Pencemaran air, membuang sampah ke dalam sungai'],['ڤنچمرن اودارا، ممبوڠ سمڤه ک دالم توڠ سمڤه','Pencemaran udara, membuang sampah ke dalam tong sampah'],['ڤنچمرن تانه، ممبکر لبيه بڽق سمڤه','Pencemaran tanah, membakar lebih banyak sampah']], a:2,
+ e:'Pembakaran terbuka mencemarkan udara dan menjejaskan kesihatan jiran (batuk). Cara terbaik ialah membuang sampah ke dalam tong sampah. Ia juga melanggar hak jiran (tidak menyakiti jiran).',
+ ref:'Modul Adab hlm. 3 (5 Pencemaran), 5, 14 & 20'},
+{lv:'K', j:'دالم مشوارت کلب، سموا اهلي ممبري ڤندڤت دڠن سوڤن دان منريما تݢورن دڠن باءيق. اڤاکه کسن درڤد سيکڤ ترسبوت؟', r:'Dalam mesyuarat kelab, semua ahli memberi pendapat dengan sopan dan menerima teguran dengan baik. Apakah kesan daripada sikap tersebut?',
+ o:[['ڤرسڤاکتن سوکر دچاڤاي','Persepakatan sukar dicapai'],['اهلي ساليڠ برموسوهن','Ahli saling bermusuhan'],['ماس مشوارت تربواڠ','Masa mesyuarat terbuang'],['مسئله داڤت دسلسايکن دان سواسان منجادي هرموني','Masalah dapat diselesaikan dan suasana menjadi harmoni']], a:3,
+ e:'Kelebihan beradab ketika bermesyuarat (2S): Selesai — menyelesaikan masalah; Suasana — suasana menjadi harmoni.',
+ ref:'Modul Adab hlm. 12'},
+{lv:'K', j:'سماس براعتکاف، حکيم بربوال کوسوڠ دان برماءين ڤرماءينن ۏيديو د دالم مسجد. عاقبة ڤربواتن حکيم اياله', r:'Semasa beriktikaf, Hakim berbual kosong dan bermain permainan video di dalam masjid. Akibat perbuatan Hakim ialah',
+ o:[['منداڤت ڤهالا يڠ بسر','Mendapat pahala yang besar'],['مڠݢڠݢو کسليساءن جماعه لاين دان ممبري ايميج بوروق کڤد ديري','Mengganggu keselesaan jemaah lain dan memberi imej buruk kepada diri'],['هاتي منجادي تنڠ دان دکاسيهي الله','Hati menjadi tenang dan dikasihi Allah'],['ايمان سماکين برتمبه','Iman semakin bertambah']], a:1,
+ e:'Akibat tidak beradab ketika beriktikaf (2M): Mengganggu keselesaan jemaah lain dan Memberikan imej buruk kepada diri. Larangan (2B): membazir masa dan membuat perkara sia-sia.',
+ ref:'Modul Adab hlm. 15 (Adab Beriktikaf)'},
+{lv:'K', j:'لينا منزيارهي نينيقڽ د هوسڤيتل ڤد وقتو تڠه مالم دان بربوال دڠن لام. ڤربواتن لينا تيدق برادب کران', r:'Lina menziarahi neneknya di hospital pada waktu tengah malam dan berbual dengan lama. Perbuatan Lina tidak beradab kerana',
+ o:[['دي تيدق ممباوا بواه تاڠن يڠ مهل','Dia tidak membawa buah tangan yang mahal'],['دي سڤاتوتڽ منزيارهي سچارا برسنديرين','Dia sepatutnya menziarahi secara bersendirian'],['دي تيدق منزيارهي ڤد وقتو يڠ سسواي دان مڠݢڠݢو رحت ڤساکيت','Dia tidak menziarahi pada waktu yang sesuai dan mengganggu rehat pesakit'],['دي تيدق مماکاي ڤاکاين يڠ چنتيق','Dia tidak memakai pakaian yang cantik']], a:2,
+ e:'Adab ziarah orang sakit (2S): Sesuai — datang pada waktu yang sesuai dan tidak terlalu lama; Sembuh — mendoakan kesembuhan. Tengah malam dan berbual lama mengganggu rehat pesakit.',
+ ref:'Modul Adab hlm. 8–10 (Adab Ziarah Orang Sakit)'},
+{lv:'K', j:'امير منولوڠ جيرنڽ يڠ کلاءينن اوڤاي ملينتس جالن تنڤا مڠهارڤکن سبارڠ بالسن. نيلاي مورني يڠ ڤاليڠ تڤت دتونجوقکن اوليه امير اياله', r:'Amir menolong jirannya yang kelainan upaya melintas jalan tanpa mengharapkan sebarang balasan. Nilai murni yang paling tepat ditunjukkan oleh Amir ialah',
+ o:[['ڤاتريوتيک','Patriotik'],['برديکاري','Berdikari'],['برهاتي٢','Berhati-hati'],['اخلاص','Ikhlas']], a:3,
+ e:'Menolong tanpa mengharapkan balasan menunjukkan nilai IKHLAS. Ia juga selari dengan adab dengan OKU: segera hulurkan bantuan jika diperlukan.',
+ ref:'Modul Adab hlm. 4 (Nilai Murni) & 6'},
+{lv:'K', j:'دانيال ماسوق ک مجليس ڤرکهوينن تنڤا ممبري سلام دان برݢورو کاسر سهيڠݢ تتامو لاين براس تيدق سليسا. اڤاکه عاقبة ڤربواتنڽ؟', r:'Daniel masuk ke majlis perkahwinan tanpa memberi salam dan bergurau kasar sehingga tetamu lain berasa tidak selesa. Apakah akibat perbuatannya?',
+ o:[['مرڠݢڠکن هوبوڠن سيلاتورحيم','Merenggangkan hubungan silaturahim'],['مڠرتکن هوبوڠن سيلاتورحيم','Mengeratkan hubungan silaturahim'],['سواسان مجليس منجادي مرياه','Suasana majlis menjadi meriah'],['دسنڠي اوليه تتامو لاين','Disenangi oleh tetamu lain']], a:0,
+ e:'Akibat tidak beradab di majlis keramaian: Silat — merenggangkan hubungan silaturahim; Selesa — tetamu lain rasa tidak selesa. Pilihan lain ialah kelebihan beradab.',
+ ref:'Modul Adab hlm. 12 (Adab Majlis Keramaian)'},
+{lv:'K', j:'انتارا بريکوت، يڠ مانکه بوکن فائدة برادب دڠن جيرن؟', r:'Antara berikut, yang manakah BUKAN faedah beradab dengan jiran?',
+ o:[['هيدوڤ هرموني دان امان داماي','Hidup harmoni dan aman damai'],['ووجود سماڠت بکرجاسام','Wujud semangat bekerjasama'],['دسيسيه اوليه مشارکت','Disisih oleh masyarakat'],['مڠواتکن هوبوڠن ڤرڤادوان','Menguatkan hubungan perpaduan']], a:2,
+ e:'Disisih oleh masyarakat ialah AKIBAT tidak beradab dengan jiran. Faedahnya: hidup harmoni, wujud semangat bekerjasama, saling menjaga keselamatan dan menguatkan perpaduan.',
+ ref:'Modul Adab hlm. 5'},
+{lv:'K', j:'اڤابيلا مندڠر بريتا کماتين جيرنڽ، هنا سڤاتوتڽ ملفظکن', r:'Apabila mendengar berita kematian jirannya, Hana sepatutnya melafazkan',
+ o:[['اَلْحَمْدُ لِلّٰهِ','Alhamdulillah'],['إِنَّا لِلّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُوْنَ','Inna lillahi wa inna ilaihi raji‘un'],['سُبْحَانَ اللّٰهِ','Subhanallah'],['بَارَكَ اللّٰهُ فِيْكَ','Barakallahu fik']], a:1,
+ e:'Kalimah istirja‘ «إِنَّا لِلّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُوْنَ» (Sesungguhnya kami milik Allah dan kepada-Nya kami kembali) dilafazkan ketika menerima berita kematian atau musibah.',
+ ref:'Modul Adab hlm. 17 (no. 5)'}
+]}
+};
+
+const LV = {M:{n:'Mudah',j:'موده'},S:{n:'Sederhana',j:'سدرهان'},K:{n:'Sukar',j:'سوکر'}};
+const LAB = ['ا','ب','ج','د'];
+const KEY = 'upkk_akidah_adab_v1';
+const ADMIN = {id:'admin', pw:'admin'};
+
+/* ===== Storage (selamat) ===== */
+let MEM = [];
+function load(){try{const v=localStorage.getItem(KEY);return v?JSON.parse(v):MEM}catch(e){return MEM}}
+function save(d){MEM=d;try{localStorage.setItem(KEY,JSON.stringify(d))}catch(e){}}
+function sGet(k){try{return sessionStorage.getItem(k)}catch(e){return null}}
+function sSet(k,v){try{v===null?sessionStorage.removeItem(k):sessionStorage.setItem(k,v)}catch(e){}}
+
+const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function grade(p){if(p>=80)return['A','Mumtaz'];if(p>=65)return['B','Jayyid Jiddan'];if(p>=50)return['C','Jayyid'];if(p>=40)return['D','Maqbul'];return['E','Perlu Bimbingan']}
+const fmtT = s => String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const fmtD = t => new Date(t).toLocaleString('ms-MY',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2400)}
+const lvBadge = l => `<span class="lv lv-${l}">${LV[l].n} · <span class="jawi">${LV[l].j}</span></span>`;
+
+/* ===== Navigasi ===== */
+function go(v){
+  if(QZ && v!=='quiz' && document.getElementById('v-quiz').classList.contains('on')){
+    if(!confirm('Ujian sedang berjalan. Keluar dan batalkan ujian ini?'))return;
+    stopTimer();QZ=null;
+  }
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  document.getElementById('v-'+v).classList.add('on');
+  document.querySelectorAll('nav.menu button').forEach(b=>b.classList.toggle('on',b.dataset.nav===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(v==='home')renderHome();
+  if(v==='admin')renderAdminGate();
+}
+
+/* ===== HOME DASHBOARD ===== */
+function renderHome(){
+  const d=load();
+  const uniq=new Set(d.map(x=>x.name.toLowerCase()+'|'+x.kelas.toLowerCase())).size;
+  const avg=a=>a.length?Math.round(a.reduce((s,x)=>s+x.pct,0)/a.length):0;
+  const ak=d.filter(x=>x.subject==='akidah'),ad=d.filter(x=>x.subject==='adab');
+  const lulus=d.length?Math.round(d.filter(x=>x.pct>=50).length/d.length*100):0;
+  document.getElementById('h-stats').innerHTML=[
+    ['Jumlah Percubaan',d.length,'semua subjek'],
+    ['Murid Berdaftar',uniq,'nama + kelas unik'],
+    ['Purata Keseluruhan',avg(d)+'%','Akidah & Adab'],
+    ['Kadar Lulus',lulus+'%','markah ≥ 50%']
+  ].map(s=>`<div class="card stat"><div class="k">${s[0]}</div><div class="v">${s[1]}</div><div class="s">${s[2]}</div></div>`).join('');
+  document.getElementById('h-subj').innerHTML=
+    `<div class="brow"><span>Akidah <span class="jawi" style="color:var(--gold)">عقيدة</span></span><div class="bar"><i style="width:${avg(ak)}%"></i></div><b>${avg(ak)}%</b></div>
+     <div class="brow"><span>Adab <span class="jawi" style="color:var(--gold)">ادب</span></span><div class="bar gold"><i style="width:${avg(ad)}%"></i></div><b>${avg(ad)}%</b></div>
+     <p class="mini">${ak.length} percubaan Akidah · ${ad.length} percubaan Adab</p>`;
+  const lv={M:[0,0],S:[0,0],K:[0,0]};
+  d.forEach(x=>['M','S','K'].forEach(l=>{lv[l][0]+=x.byLevel[l][0];lv[l][1]+=x.byLevel[l][1]}));
+  document.getElementById('h-level').innerHTML=['M','S','K'].map(l=>{const p=lv[l][1]?Math.round(lv[l][0]/lv[l][1]*100):0;
+    return `<div class="brow"><span>${lvBadge(l)}</span><div class="bar ${l==='S'?'gold':''}"><i style="width:${p}%;${l==='K'?'background:linear-gradient(90deg,#9b2c3a,#c45a68)':''}"></i></div><b>${p}%</b></div>`}).join('')+
+    '<p class="mini">Peratus jawapan betul bagi setiap aras (semua percubaan).</p>';
+  const best={};
+  d.forEach(x=>{const k=x.name.toLowerCase()+'|'+x.kelas.toLowerCase()+'|'+x.subject;if(!best[k]||x.pct>best[k].pct||(x.pct===best[k].pct&&x.dur<best[k].dur))best[k]=x});
+  const top=Object.values(best).sort((a,b)=>b.pct-a.pct||a.dur-b.dur).slice(0,10);
+  document.getElementById('h-top').innerHTML=top.length?`<table><tr><th>#</th><th>Nama</th><th>Subjek</th><th>Markah</th><th>Gred</th></tr>${top.map((x,i)=>`<tr><td><span class="rank ${i<3?'r'+(i+1):''}">${i+1}</span></td><td><b>${esc(x.name)}</b><div class="mini">${esc(x.kelas)}</div></td><td>${BANK[x.subject].name}</td><td><b>${x.score}/${x.total}</b> (${x.pct}%)</td><td><span class="pill g-${x.grade}">${x.grade}</span></td></tr>`).join('')}</table>`:'<div class="empty">Belum ada rekod. Jadilah murid pertama yang menjawab!</div>';
+  const gc={A:0,B:0,C:0,D:0,E:0};d.forEach(x=>gc[x.grade]++);
+  document.getElementById('h-grade').innerHTML=Object.keys(gc).map(g=>{const p=d.length?Math.round(gc[g]/d.length*100):0;
+    return `<div class="brow"><span><span class="pill g-${g}">${g}</span> ${grade({A:90,B:70,C:55,D:45,E:0}[g])[1]}</span><div class="bar ${g==='B'||g==='C'?'gold':''}"><i style="width:${p}%"></i></div><b>${gc[g]}</b></div>`}).join('')+
+    '<p class="mini">A ≥80 · B 65–79 · C 50–64 · D 40–49 · E &lt;40 (panduan dalaman)</p>';
+  const rec=[...d].sort((a,b)=>b.date-a.date).slice(0,8);
+  document.getElementById('h-recent').innerHTML=rec.length?`<table><tr><th>Tarikh</th><th>Nama</th><th>Kelas</th><th>Subjek</th><th>Markah</th><th>Masa</th><th>Gred</th></tr>${rec.map(x=>`<tr><td>${fmtD(x.date)}</td><td><b>${esc(x.name)}</b></td><td>${esc(x.kelas)}</td><td>${BANK[x.subject].name}</td><td>${x.score}/${x.total} (${x.pct}%)</td><td>${fmtT(x.dur)}</td><td><span class="pill g-${x.grade}">${x.grade}</span></td></tr>`).join('')}</table>`:'<div class="empty">Tiada percubaan direkodkan.</div>';
+}
+
+/* ===== START ===== */
+let SUBJ=null;
+function pickSubj(s){SUBJ=s;document.querySelectorAll('.subj').forEach(b=>b.classList.toggle('on',b.dataset.s===s))}
+let QZ=null,TIMER=null;
+function beginQuiz(){
+  const name=document.getElementById('s-name').value.trim(),kelas=document.getElementById('s-kelas').value.trim(),err=document.getElementById('s-err');
+  if(name.length<3){err.textContent='Sila masukkan nama penuh murid.';return}
+  if(!kelas){err.textContent='Sila masukkan kelas / darjah.';return}
+  if(!SUBJ){err.textContent='Sila pilih subjek Akidah atau Adab.';return}
+  err.textContent='';
+  QZ={name,kelas,subject:SUBJ,ans:Array(BANK[SUBJ].q.length).fill(null),i:0,t0:Date.now(),rumi:document.getElementById('s-rumi').checked};
+  document.getElementById('q-rumi').checked=QZ.rumi;
+  document.getElementById('q-who').textContent=name+' · '+kelas;
+  document.getElementById('q-sub').innerHTML='Subjek: <b>'+BANK[SUBJ].name+'</b> <span class="jawi" style="color:var(--gold)">'+BANK[SUBJ].jawi+'</span> · 25 soalan';
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  document.getElementById('v-quiz').classList.add('on');
+  document.querySelectorAll('nav.menu button').forEach(b=>b.classList.remove('on'));
+  stopTimer();TIMER=setInterval(()=>{if(QZ)document.getElementById('q-time').textContent=fmtT(Math.floor((Date.now()-QZ.t0)/1000))},1000);
+  document.getElementById('q-time').textContent='00:00';
+  renderQ();window.scrollTo({top:0});
+}
+function stopTimer(){if(TIMER){clearInterval(TIMER);TIMER=null}}
+function toggleRumi(v){if(QZ){QZ.rumi=v;renderQ()}}
+function renderQ(){
+  const B=BANK[QZ.subject].q,q=B[QZ.i],n=B.length;
+  document.getElementById('q-num').textContent='Soalan '+(QZ.i+1)+' / '+n;
+  document.getElementById('q-lv').innerHTML=lvBadge(q.lv);
+  document.getElementById('q-text').textContent=q.j;
+  const rt=document.getElementById('q-rumi-t');rt.style.display=QZ.rumi?'block':'none';rt.textContent=q.r;
+  document.getElementById('q-opts').innerHTML=q.o.map((o,k)=>`<button class="opt ${QZ.ans[QZ.i]===k?'on':''}" onclick="choose(${k})"><span class="lab">${LAB[k]}</span><span class="ot"><span class="jawi">${esc(o[0])}</span>${QZ.rumi?`<span class="rm">${esc(o[1])}</span>`:''}</span></button>`).join('');
+  document.getElementById('q-prev').disabled=QZ.i===0;
+  document.getElementById('q-next').textContent=QZ.i===n-1?'Semak & Hantar ✓':'Seterusnya →';
+  const done=QZ.ans.filter(x=>x!==null).length;
+  document.getElementById('q-prog').style.width=(done/n*100)+'%';
+  document.getElementById('q-count').innerHTML=`Dijawab: <b>${done}</b> / ${n}`;
+  document.getElementById('q-pad').innerHTML=B.map((x,k)=>`<button class="${QZ.ans[k]!==null?'ans':''} ${k===QZ.i?'cur':''}" title="${LV[x.lv].n}" onclick="jump(${k})">${k+1}</button>`).join('');
+}
+function choose(k){QZ.ans[QZ.i]=k;renderQ();if(QZ.i<QZ.ans.length-1)setTimeout(()=>{QZ.i++;renderQ()},260)}
+function jump(k){QZ.i=k;renderQ()}
+function move(d){const n=QZ.ans.length;if(d>0&&QZ.i===n-1){submitQuiz();return}QZ.i=Math.max(0,Math.min(n-1,QZ.i+d));renderQ()}
+function submitQuiz(){
+  const blank=QZ.ans.filter(x=>x===null).length;
+  if(!confirm(blank?`Masih ada ${blank} soalan belum dijawab. Hantar juga?`:'Hantar semua jawapan sekarang?'))return;
+  stopTimer();
+  const B=BANK[QZ.subject].q,byLevel={M:[0,0],S:[0,0],K:[0,0]};let score=0;
+  const marks=B.map((q,k)=>{const ok=QZ.ans[k]===q.a;byLevel[q.lv][1]++;if(ok){score++;byLevel[q.lv][0]++}return QZ.ans[k]===null?'n':ok?'t':'f'});
+  const pct=Math.round(score/B.length*100),g=grade(pct)[0];
+  const rec={id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:QZ.name,kelas:QZ.kelas,subject:QZ.subject,score,total:B.length,pct,grade:g,byLevel,answers:QZ.ans,date:Date.now(),dur:Math.floor((Date.now()-QZ.t0)/1000)};
+  const d=load();d.push(rec);save(d);
+  showResult(rec,marks);QZ=null;
+}
+function showResult(r,marks){
+  const [g,gn]=grade(r.pct),col=r.pct>=50?'#0d4a38':'#b23a3a';
+  document.getElementById('r-body').innerHTML=`
+   <div class="grid g2" style="align-items:center">
+     <div><div class="ring" style="background:conic-gradient(${col} ${r.pct*3.6}deg,#efe7d3 0)"><div class="in"><div class="pc">${r.pct}%</div><div class="sc">${r.score} / ${r.total} betul</div></div></div></div>
+     <div>
+       <div class="mini">Tahniah,</div>
+       <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--emerald)">${esc(r.name)}</h3>
+       <div class="mini">${esc(r.kelas)} · ${BANK[r.subject].name} · Masa: ${fmtT(r.dur)}</div>
+       <div style="margin:12px 0"><span class="pill g-${g}" style="font-size:.95rem;padding:6px 14px">Gred ${g} — ${gn}</span></div>
+       ${['M','S','K'].map(l=>{const p=Math.round(r.byLevel[l][0]/r.byLevel[l][1]*100);return `<div class="brow"><span>${lvBadge(l)}</span><div class="bar"><i style="width:${p}%"></i></div><b>${r.byLevel[l][0]}/${r.byLevel[l][1]}</b></div>`}).join('')}
+     </div>
+   </div>
+   <h4 style="margin:22px 0 10px;color:var(--emerald)">Status Setiap Soalan</h4>
+   <div class="rgrid">${marks.map((m,k)=>`<div class="${m}">${k+1}</div>`).join('')}</div>
+   <div class="legend"><span style="color:var(--ok)">■ Betul</span><span style="color:var(--bad)">■ Salah</span><span>□ Tidak dijawab</span></div>
+   <p class="mini" style="margin-top:12px">Skema jawapan dan penerangan boleh dirujuk bersama muallim.</p>
+   <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap"><button class="btn btn-line" onclick="go('home')">Ke Dashboard</button><button class="btn btn-em" onclick="go('start')">Cuba Subjek Lain</button></div>`;
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('on'));
+  document.getElementById('v-result').classList.add('on');window.scrollTo({top:0});
+}
+
+/* ===== ADMIN ===== */
+function renderAdminGate(){
+  const ok=sGet('upkk_admin')==='1';
+  document.getElementById('a-login').style.display=ok?'none':'block';
+  document.getElementById('a-panel').style.display=ok?'block':'none';
+  if(ok){renderRecords();renderSkema('akidah');renderSkema('adab');renderIA()}
+}
+function doLogin(){
+  const id=document.getElementById('a-id').value.trim(),pw=document.getElementById('a-pw').value;
+  if(id===ADMIN.id&&pw===ADMIN.pw){sSet('upkk_admin','1');document.getElementById('a-err').textContent='';document.getElementById('a-pw').value='';renderAdminGate();toast('Selamat datang, Muallim.')}
+  else document.getElementById('a-err').textContent='ID atau kata laluan tidak sah.';
+}
+function doLogout(){sSet('upkk_admin',null);renderAdminGate()}
+function tab(t){
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  document.querySelectorAll('.pane').forEach(p=>{p.classList.toggle('on',p.id===t);p.classList.toggle('print-on',p.id===t)});
+}
+function renderRecords(){
+  const q=(document.getElementById('f-q').value||'').toLowerCase(),s=document.getElementById('f-s').value;
+  const d=load().filter(x=>(!s||x.subject===s)&&(!q||x.name.toLowerCase().includes(q)||x.kelas.toLowerCase().includes(q))).sort((a,b)=>b.date-a.date);
+  document.getElementById('a-rec').innerHTML=d.length?`<table><tr><th>Tarikh</th><th>Nama</th><th>Kelas</th><th>Subjek</th><th>Mudah</th><th>Sederhana</th><th>Sukar</th><th>Markah</th><th>Gred</th><th>Masa</th><th class="no-print"></th></tr>${d.map(x=>`<tr><td>${fmtD(x.date)}</td><td><b>${esc(x.name)}</b></td><td>${esc(x.kelas)}</td><td>${BANK[x.subject].name}</td><td>${x.byLevel.M[0]}/${x.byLevel.M[1]}</td><td>${x.byLevel.S[0]}/${x.byLevel.S[1]}</td><td>${x.byLevel.K[0]}/${x.byLevel.K[1]}</td><td><b>${x.score}/${x.total}</b> (${x.pct}%)</td><td><span class="pill g-${x.grade}">${x.grade}</span></td><td>${fmtT(x.dur)}</td><td class="no-print"><button class="btn btn-line btn-sm" onclick="detail('${x.id}')">Butiran</button> <button class="btn btn-red btn-sm" onclick="delRec('${x.id}')">✕</button></td></tr>`).join('')}</table>`:'<div class="empty">Tiada rekod sepadan.</div>';
+}
+function detail(id){
+  const r=load().find(x=>x.id===id);if(!r)return;const B=BANK[r.subject].q;
+  const wrong=B.map((q,k)=>({q,k,a:r.answers[k]})).filter(x=>x.a!==x.q.a);
+  alert(`${r.name} (${r.kelas}) — ${BANK[r.subject].name}\nMarkah: ${r.score}/${r.total} (${r.pct}%)\n\nSoalan salah / tidak dijawab:\n`+(wrong.length?wrong.map(x=>`S${x.k+1} [${LV[x.q.lv].n}] — jawapan murid: ${x.a===null?'tiada':LAB[x.a]} | betul: ${LAB[x.q.a]} (${x.q.o[x.q.a][1]})`).join('\n'):'Tiada — semua betul. Masya-Allah!'));
+}
+function delRec(id){if(!confirm('Padam rekod ini?'))return;save(load().filter(x=>x.id!==id));renderRecords();renderIA();toast('Rekod dipadam.')}
+function clearAll(){if(!confirm('Padam SEMUA rekod murid? Tindakan ini tidak boleh dibatalkan.'))return;save([]);renderRecords();renderIA();toast('Semua rekod dipadam.')}
+function exportCSV(){
+  const d=load();if(!d.length){toast('Tiada data untuk dieksport.');return}
+  const rows=[['Tarikh','Nama','Kelas','Subjek','Mudah','Sederhana','Sukar','Markah','Jumlah','Peratus','Gred','Masa(s)']].concat(d.map(x=>[fmtD(x.date),x.name,x.kelas,BANK[x.subject].name,x.byLevel.M[0],x.byLevel.S[0],x.byLevel.K[0],x.score,x.total,x.pct,x.grade,x.dur]));
+  const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='rekod-upkk-akidah-adab.csv';a.click();
+}
+function renderSkema(s){
+  const S=BANK[s],cnt={M:0,S:0,K:0};S.q.forEach(q=>cnt[q.lv]++);
+  document.getElementById('sk-'+s).innerHTML=`<div class="card" style="margin-bottom:16px"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--emerald)">Skema Jawapan ${S.name} <span class="jawi" style="color:var(--gold)">${S.jawi}</span></h3><p class="mini">25 soalan · Mudah ${cnt.M} · Sederhana ${cnt.S} · Sukar ${cnt.K}</p>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">${S.q.map((q,k)=>`<span class="chip" style="font-size:.78rem">${k+1}. <b class="jawi" style="font-size:1.05rem">${LAB[q.a]}</b></span>`).join('')}</div></div>`+
+  S.q.map((q,k)=>`<div class="card sk"><div class="hd"><span class="qnum">Soalan ${k+1}</span>${lvBadge(q.lv)}</div>
+   <div class="qj jawi">${esc(q.j)}</div><div class="qr">${esc(q.r)}</div>
+   <ol>${q.o.map((o,i)=>`<li class="${i===q.a?'c':''}"><span class="lab">${LAB[i]}</span><span class="jawi">${esc(o[0])}</span><span class="rm">${esc(o[1])}</span>${i===q.a?'<span class="tick">✓</span>':''}</li>`).join('')}</ol>
+   <div class="ans"><b>Jawapan: <span class="jawi" style="font-size:1.15rem">${LAB[q.a]}</span> — ${esc(q.o[q.a][1])}</b><br>${esc(q.e)}<div class="ref">📖 ${esc(q.ref)}</div></div></div>`).join('');
+}
+function renderIA(){
+  const d=load();
+  ['akidah','adab'].forEach(s=>{
+    const at=d.filter(x=>x.subject===s),B=BANK[s].q;
+    document.getElementById('ia-'+s).innerHTML=at.length?`<p class="mini" style="margin:6px 0 8px">Berdasarkan ${at.length} percubaan. Item &lt;40% wajar diulang kaji semula.</p>`+B.map((q,k)=>{const c=at.filter(x=>x.answers[k]===q.a).length,p=Math.round(c/at.length*100);
+      return `<div class="ia"><b>S${k+1}</b><span>${lvBadge(q.lv)}</span><div class="bar"><i style="width:${p}%;${p<40?'background:linear-gradient(90deg,#b23a3a,#d26a5c)':''}"></i></div><b style="text-align:right;color:${p<40?'var(--bad)':'var(--emerald)'}">${p}%</b></div>`}).join(''):'<div class="empty">Belum ada data percubaan.</div>';
+  });
+}
+
+renderHome();
+</script>
+</body>
+</html>
